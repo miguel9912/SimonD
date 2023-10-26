@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         btnComprobar.setOnClickListener{
             for ((i, boton) in pilaBotones.withIndex()){
-                if(boton != botonesPulsados.get(i)){
+                /*if(boton != botonesPulsados.get(i)){
                     perder = true
                 }
             }
@@ -69,8 +69,15 @@ class MainActivity : AppCompatActivity() {
                 displaySimonPattern()
             }else{
                 Toast.makeText(this, "HAS PERDIDO",Toast.LENGTH_SHORT)
-                resetSimonSaysGame()
+                resetSimonSaysGame()*/
+                if (perder) {
+                            handlePlayerInput(boton)
+                        }else{
+                    Toast.makeText(this, "HAS PERDIDO",Toast.LENGTH_SHORT)
+                    resetSimonSaysGame()
+                        }
             }
+
 
         }
 
@@ -81,7 +88,7 @@ class MainActivity : AppCompatActivity() {
 
         for (i in posiblesBotones) {
 
-            /*i.setOnTouchListener { view, event ->
+            i.setOnTouchListener { view, event ->
                 when (event.action) {
                     MotionEvent.ACTION_DOWN -> {
                         when (i) {
@@ -129,21 +136,18 @@ class MainActivity : AppCompatActivity() {
                             }
 
                         }
-
+                        //aquí va
                         true // Devuelve 'true' para indicar que has manejado el evento
                     }
                     else -> {
 
                         false // Para otros eventos táctiles, devuelve 'false'
                     }
-                    /*   if (perder) {
-                            handlePlayerInput(i)
-                        }*/
-
                 }
-            }*/
 
-           i.setOnClickListener {
+            }
+
+           /*i.setOnClickListener {
                 when (i) {
                     btnRed -> {
 
@@ -187,11 +191,8 @@ class MainActivity : AppCompatActivity() {
                 if (perder) {
                     handlePlayerInput(i)
                 }
-            }
+            }*/
 
-        /*if (perder) {
-            handlePlayerInput(i)
-        }*/
         }
     }
 
